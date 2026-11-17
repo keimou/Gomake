@@ -1,0 +1,217 @@
+# 
+
+# jwt configuration
+jwt:
+  signing-key: 'keimouKey'
+  expires-time: 604800
+  buffer-time: 86400
+  issuer: 'keid'
+
+# zap logger configuration
+zap:
+  level: debug  # debug info warn error dpanic panic fatal
+  prefix: '[keid]'
+  format: console
+  director: log
+  encode-level: CapitalLevelEncoder    # CapitalLevelEncoder CapitalColorLevelEncoder LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  max-age: 30
+  show-line: true
+  log-in-console: true
+  replace-gin: true
+
+# email configuration
+email:
+  to: 'xxx@qq.com'
+  port: 465
+  from: 'xxx@163.com'
+  host: 'smtp.163.com'
+  is-ssl: true
+  secret: 'xxx'
+  nickname: 'test'
+
+
+# system configuration
+system:
+  env: 'public'  # Change to "develop" to skip authentication for development mode
+  addr: 8080
+  db-type: 'mysql'     # 数据库的类型,目前支持 mysql sqlite
+  oss-type: 'local'    # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
+  use-redis: false     # 使用redis
+  use-netip: true      # 使用公网ip地址
+  single-signon: false # 单点登录 use-multipoint 多点登录
+  # use-multipoint: false # 多点登录拦截
+  use-certif: false    # Use TLS certificate
+  cert-file: 'certs/certFile.crt'
+  key-file: 'certs/keyFile.key'
+  # IP限制次数 一个小时15000次
+  iplimit-count: 15000
+  #  IP限制一个小时
+  iplimit-time: 3600
+
+# captcha configuration
+captcha:
+  key-long: 6
+  img-width: 240
+  img-height: 80
+
+# # mysql connect configuration
+# # 未初始化之前请勿手动修改数据库信息！！！如果一定要手动初始化请看（https://gin-vue-admin.com/docs/first_master）utf8mb4
+# mysql:
+#   path: '175.178.129.134'
+#   port: '3306'
+#   config: ''
+#   db-name: ''
+#   username: 'root'
+#   password: 'tx123456'
+#   max-idle-conns: 10
+#   max-open-conns: 100
+#   log-mode: ""
+#   log-zap: false
+
+# redis configuration
+redis:
+  db: 0
+  addr: '172.172.0.7:6379'
+  password: 'KfGzQhLmBnXsWpRt'
+  poolsize: 100
+
+# system main db connect configuration
+sysdb:
+  path: "172.172.0.7"
+  port: "3306"
+  config: "charset=utf8mb4&parseTime=True&loc=Local"
+  db-name: "ninex"
+  username: "root"
+  password: "Anby.2033"
+  max-idle-conns: 10
+  max-open-conns: 100
+  slow-threshold: 200
+  batch-size: 500
+  log-mode: "error"
+  log-length: 
+  log-zap: true
+
+# database connect configuration
+db-list:
+  - disable: true # 是否禁用该数据库连接, true: 禁用, false: 启用
+    type: "" # 数据库的类型,目前支持mysql、pgsql
+    alias-name: "" # 数据库的名称,注意: alias-name 需要在db-list中唯一
+    path: ''
+    port: ''
+    config: ''
+    db-name: ''
+    username: ''
+    password: ''
+    max-idle-conns: 10
+    max-open-conns: 100
+    log-mode: ""
+    log-zap: false
+    
+  - disable: false
+    type: "sqlite" 
+    alias-name: "prime"
+    path: "172.172.0.7"
+    port: "3306"
+    config: "charset=utf8mb4&parseTime=True&loc=Local"
+    db-name: "ninex"
+    username: "root"
+    password: "Anby.2033"
+    max-idle-conns: 10
+    max-open-conns: 100
+    slow-threshold: 1200
+    batch-size: 200
+    log-mode: "warn"
+    log-length: 500
+    log-zap: false
+
+  - disable: true
+    type: "taos" 
+    alias-name: "bactd"
+    path: "taosurl" # localhost taos 94.191.48.59 106.13.186.242 
+    port: "6030"   # 6030 :tcp  6041 :http/ws
+    config: ""
+    db-name: bacetd # testbac binance
+    username: "root"
+    password: "admin123+++"  # Data123+++
+    max-idle-conns: 10
+    max-open-conns: 100
+    slow-threshold: 500
+    batch-size: 500
+    log-mode: "error"
+    log-length: 500
+    log-zap: false
+
+# local configuration
+local:
+  path: 'uploads/file' # 访问路径
+  store-path: 'uploads/file' # 存储路径
+
+
+
+
+# 云 储存
+# qiniu configuration (请自行七牛申请对应的 公钥 私钥 bucket 和 域名地址)
+qiniu:
+  zone: 'ZoneHuaDong'
+  bucket: ''
+  img-path: ''
+  use-https: false
+  access-key: ''
+  secret-key: ''
+  use-cdn-domains: false
+
+# aliyun oss configuration
+aliyun-oss:
+  endpoint: 'yourEndpoint'
+  access-key-id: 'yourAccessKeyId'
+  access-key-secret: 'yourAccessKeySecret'
+  bucket-name: 'yourBucketName'
+  bucket-url: 'yourBucketUrl'
+  base-path: 'yourBasePath'
+
+# tencent cos configuration
+tencent-cos:
+  bucket: 'xxxxx-10005608'
+  region: 'ap-shanghai'
+  secret-id: 'xxxxxxxx'
+  secret-key: 'xxxxxxxx'
+  base-url: 'https://gin.vue.admin'
+  path-prefix: 'github.com/flipped-aurora/gin-vue-admin/server'
+
+# aws s3 configuration (minio compatible)
+aws-s3:
+  bucket: xxxxx-10005608
+  region: ap-shanghai
+  endpoint: ''
+  s3-force-path-style: false
+  disable-ssl: false
+  secret-id: xxxxxxxx
+  secret-key: xxxxxxxx
+  base-url: https://gin.vue.admin
+  path-prefix: github.com/flipped-aurora/gin-vue-admin/server
+
+# huawei obs configuration
+hua-wei-obs:
+  path: 'you-path'
+  bucket: 'you-bucket'
+  endpoint: 'you-endpoint'
+  access-key: 'you-access-key'
+  secret-key: 'you-secret-key'
+
+
+# 跨域配置
+# 需要配合 server/initialize/router.go#L32 使用
+cors:
+  mode: whitelist # 放行模式: allow-all, 放行全部; whitelist, 白名单模式, 来自白名单内域名的请求添加 cors 头; strict-whitelist 严格白名单模式, 白名单外的请求一律拒绝
+  whitelist:
+    - allow-origin: example1.com
+      allow-headers: content-type
+      allow-methods: GET, POST
+      expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+      allow-credentials: true # 布尔值
+    - allow-origin: example2.com
+      allow-headers: content-type
+      allow-methods: GET, POST
+      expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
+      allow-credentials: true # 布尔值
