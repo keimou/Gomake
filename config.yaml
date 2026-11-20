@@ -55,20 +55,6 @@ captcha:
   img-width: 240
   img-height: 80
 
-# # mysql connect configuration
-# # 未初始化之前请勿手动修改数据库信息！！！如果一定要手动初始化请看（https://gin-vue-admin.com/docs/first_master）utf8mb4
-# mysql:
-#   path: '175.178.129.134'
-#   port: '3306'
-#   config: ''
-#   db-name: ''
-#   username: 'root'
-#   password: 'tx123456'
-#   max-idle-conns: 10
-#   max-open-conns: 100
-#   log-mode: ""
-#   log-zap: false
-
 # redis configuration
 redis:
   db: 0
