@@ -73,7 +73,7 @@ captcha:
 redis:
   db: 0
   addr: '172.172.0.7:6379'
-  password: 'KfGzQhLmBnXsWpRt'
+  password: '123456'
   poolsize: 100
 
 # system main db connect configuration
@@ -83,7 +83,7 @@ sysdb:
   config: "charset=utf8mb4&parseTime=True&loc=Local"
   db-name: "ninex"
   username: "root"
-  password: "Anby.2033"
+  password: "123456"
   max-idle-conns: 10
   max-open-conns: 100
   slow-threshold: 200
@@ -116,7 +116,7 @@ db-list:
     config: "charset=utf8mb4&parseTime=True&loc=Local"
     db-name: "ninex"
     username: "root"
-    password: "Anby.2033"
+    password: "123456"
     max-idle-conns: 10
     max-open-conns: 100
     slow-threshold: 1200
@@ -133,7 +133,7 @@ db-list:
     config: ""
     db-name: bacetd # testbac binance
     username: "root"
-    password: "admin123+++"  # Data123+++
+    password: "123456"
     max-idle-conns: 10
     max-open-conns: 100
     slow-threshold: 500
