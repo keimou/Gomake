@@ -38,7 +38,7 @@ system:
   db-type: 'mysql'     # 数据库的类型,目前支持 mysql sqlite
   oss-type: 'local'    # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
   use-redis: false     # 使用redis
-  use-netip: true      # 使用公网ip地址
+  use-netip: false      # 使用公网ip地址
   single-signon: false # 单点登录 use-multipoint 多点登录
   # use-multipoint: false # 多点登录拦截
   use-certif: false    # Use TLS certificate
